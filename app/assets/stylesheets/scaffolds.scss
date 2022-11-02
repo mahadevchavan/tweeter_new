@@ -21,10 +21,11 @@ a:visited {
 
 a:hover {
   color: #fff;
-  background-color: #000; }
+  background-color: rgb(209, 198, 198); }
 
 th {
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+ }
 
 td {
   padding: 0 5px 7px; }
@@ -63,3 +64,12 @@ div.actions {
 
 label {
   display: block; }
+.table {
+    margin-left: 35%;
+}
+.btn{
+  margin-left: 43%;
+}
+.h1{
+  margin-left: 43%;
+}
