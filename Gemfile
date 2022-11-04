@@ -26,6 +26,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bulma-rails', '~> 0.9.4'
 gem 'simple_form', '~> 5.1'
 gem 'gravatar_image_tag', '~> 1.2'
+gem 'binding_of_caller', '~> 1.0'
+gem 'mini_magick', '~> 4.11'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
@@ -65,3 +67,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'

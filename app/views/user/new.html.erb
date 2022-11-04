@@ -1,0 +1,5 @@
+<%= form_with(model: @user, method: "post" ) do |form| %>
+<%= form.label :image%>
+<%= form.file_field :image%>
+<%= form.submit "Update Image",class: "btn btn-primary" %>
+<% end %>
