@@ -7,3 +7,16 @@
 
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
 <%= link_to 'Back', tweets_path %>
+
+<%= form_for ([@tweet, @tweet.comments.build]) do |f| %>
+<%= f.text_field :body %>
+<%= f.submit %>
+<% end %>
+
+<% if @comments.present? %>
+  <% @comments.each do |comment| %>
+    [ <% comment.created_at.strftime("%I:%M:%p") %> ] <%= comment.user.username %>: <%= comment.body %>
+    <br/>
+  <% end %>
+<% end %>
+

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :tweets
+  get 'comments/create'
+  resources :tweets do
+      resources :comments
+  end
+
   get "profile", to: "user#new"
   post "profile", to: "user#createProfile"
 

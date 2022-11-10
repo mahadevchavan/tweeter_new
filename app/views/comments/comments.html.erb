@@ -1,0 +1,8 @@
+<% if @comments.present? %>
+  <% @comments.each do |comment| %>
+    [ <% comment.created_at.strftime("%I:%M:%p") %> ] <%= comment.user.username %>: <%= comment.body %>
+    <br/>
+  <% end %>
+<% end %>
+
+

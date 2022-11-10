@@ -9,7 +9,13 @@ class User < ApplicationRecord
          :omniauthable,
          omniauth_providers: [:google_oauth2]
   has_many :tweets
+  has_many :comments, dependent: :destroy
   has_one_attached :image
+
+
+  def username
+    return email.split('@')[0].capitalize
+  end
 
   # def self.from_omniauth(auth)
   #   name_split = auth.info.name.split(" ")
