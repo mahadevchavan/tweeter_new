@@ -7,6 +7,7 @@ gem 'rename'
 
 gem 'jquery-rails'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7'
 # Use sqlite3 as the database for Active Record
@@ -83,3 +84,5 @@ gem 'omniauth-rails_csrf_protection'
 
 gem "ruby-lsp", "~> 0.3.5", :group => :development
 gem 'pry'
+
+gem 'will_paginate'

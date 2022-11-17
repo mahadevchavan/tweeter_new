@@ -3,10 +3,11 @@ class TweetsController < ApplicationController
 
   # GET /tweets or /tweets.json
   def index
+    @user = current_user
     @tweets = Tweet.all.order("created_at DESC")
     @comment = Comment.new
   end
-
+ 
   # GET /tweets/1 or /tweets/1.json
   def show
     @comments = @tweet.comments.order("created_at DESC")
@@ -24,7 +25,8 @@ class TweetsController < ApplicationController
   # POST /tweets or /tweets.json
   def create
     @tweet = current_user.tweets.build(tweet_params)
-
+    # @tweet = current_user.tweets.all
+    # binding.pry
     respond_to do |format|
       if @tweet.save
         format.html do

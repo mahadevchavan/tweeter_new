@@ -1,0 +1,44 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        <%= @user.username %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <%#= render 'users/follow_form'  %>
+    <% if current_user %>
+      <div id="follow_form">
+      <% if current_user.following?(@user) %>
+        <%# <h2>Unfollow</h2> %>
+        <%= render 'unfollow' %>
+      <% else %>
+        <%# <h2>Follow</h2> %>
+        <%= render 'follow' %>
+      <% end %>
+      </div>
+    <% end %>
+    <% if @user.tweets.any? %>
+      <h3>Tweets (<%= @user.tweets.count %>)</h3>
+      <ol class="tweets">
+        <% if @tweets.present? %>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Tweet</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @tweets.each do |tweet| %>
+                <tr>
+                  <td><%= tweet.tweet %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        <% end %>
+      </ol>
+    <% end %>
+  </div>
+</div>

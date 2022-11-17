@@ -1,5 +1,27 @@
-<h1 class="h1"> Recent Tweets </h1>
-<%= current_user.email %>
+<h1 class="h1">Recent Tweets</h1>
+
+<div class="row">
+  <div class="col-3">
+
+<div class="stats">
+  <%= current_user.email %><br/>
+  <a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @current_user.following.count %>
+    </strong>
+    following
+  </a>
+  <a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @current_user.followers.count %>
+    </strong>
+    followers
+  </a>
+</div>
+</div>
+
+
+<div class="col-3">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -19,7 +41,44 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
 <button type="button" class="btn btn-primary">
 <%= link_to 'New Tweet', new_tweet_path %></button>
+</div>
+
+<div class="col-3">
+
+<% unless current_user == @user %>
+  <div id="follow_form">
+
+  <% if current_user.following?(@user) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>
+<% end %>
+</div>
+
+<div class="col-3">
+  <table class="table ">
+  <thead class="thead-dark">
+    <tr>
+User's To Follow.
+</tr>
+</thead>
+<br/>
+
+  <tr>
+    <% if current_user.present? %>
+     <% User.all_except(current_user).each do |user|%>
+       <%= link_to user.username , user_path(user) %><br/>
+
+      <%#= user.username rescue nil%>
+    <% end%>
+  <% end %>
+  </tr>
+
+</table>
+
+</div>
+</div>
